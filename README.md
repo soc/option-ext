@@ -11,7 +11,7 @@ This crate extends `Option` with additional methods, currently:
 
 - `contains`
 
-Its sister crate is `result-ext`, which extends `Result`. 
+Its sister crate is [`result-ext`](https://github.com/soc/result-ext), which extends `Result`. 
 
 ## Requirements
 
@@ -32,7 +32,7 @@ into the `[dependencies]` section of your Cargo.toml file.
 #### Example
 
 ```rust
-use self::option_ext;
+use option_ext::OptionExt;
 
 fn example() {
     let x: Option<u32> = Some(2);
