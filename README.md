@@ -10,8 +10,10 @@
 This crate extends `Option` with additional methods, currently:
 
 - `contains`
+- `map_or2` (as a replacement for `map_or`)
+- `map_or_else2` (as a replacement for `map_or_else`)
 
-Its sister crate is [`result-ext`](https://github.com/soc/result-ext), which extends `Result`. 
+Its sister crate is [`result-ext`](https://github.com/soc/result-ext), which extends `Result`.
 
 ## Requirements
 
@@ -24,7 +26,7 @@ Rust 1.0 or newer.
 Add the library as a dependency to your project by inserting
 
 ```toml
-option-ext = "0.1.0"
+option-ext = "0.2.0"
 ```
 
 into the `[dependencies]` section of your Cargo.toml file.
@@ -34,7 +36,7 @@ into the `[dependencies]` section of your Cargo.toml file.
 ```rust
 use option_ext::OptionExt;
 
-fn example() {
+fn example_contains() {
     let x: Option<u32> = Some(2);
     assert_eq!(x.contains(&2), true);
 
@@ -43,5 +45,23 @@ fn example() {
 
     let x: Option<u32> = None;
     assert_eq!(x.contains(&2), false);
+}
+
+fn example_map_or2() {
+    let x = Some("bar");
+    assert_eq!(x.map_or2(|v| v.len(), 42), 3);
+
+    let x: Option<&str> = None;
+    assert_eq!(x.map_or2(|v| v.len(), 42), 42);
+}
+
+fn example_map_or_else2() {
+    let k = 23;
+    
+    let x = Some("bar");
+    assert_eq!(x.map_or_else2(|v| v.len(), || 2 * k), 3);
+    
+    let x: Option<&str> = None;
+    assert_eq!(x.map_or_else2(|v| v.len(), || 2 * k), 46);
 }
 ```

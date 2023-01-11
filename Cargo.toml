@@ -1,7 +1,7 @@
 [package]
 name = "option-ext"
 description = "Extends `Option` with additional operations"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Simon Ochsenreither <simon@ochsenreither.de>"]
 categories = ["rust-patterns", "algorithms"]
 documentation = "https://docs.rs/option-ext/"
