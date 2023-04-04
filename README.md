@@ -1,7 +1,7 @@
-[![crates.io](https://img.shields.io/crates/v/option-ext.svg)](https://crates.io/crates/option-ext)
-[![API documentation](https://docs.rs/option-ext/badge.svg)](https://docs.rs/option-ext/)
-![actively developed](https://img.shields.io/badge/maintenance-actively--developed-brightgreen.svg)
-![License: MPL-2.0](https://img.shields.io/badge/license-MPL--2.0-orange.svg)
+[![crates.io](https://img.shields.io/crates/v/option-ext.svg?style=for-the-badge)](https://crates.io/crates/option-ext)
+[![API documentation](https://img.shields.io/docsrs/option-ext/latest?style=for-the-badge)](https://docs.rs/option-ext/)
+![actively developed](https://img.shields.io/badge/maintenance-actively--developed-brightgreen.svg?style=for-the-badge)
+![License: MPL-2.0](https://img.shields.io/badge/license-MPL--2.0-orange.svg?style=for-the-badge)
 
 # `option-ext`
 
