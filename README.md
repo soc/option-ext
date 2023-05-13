@@ -12,6 +12,7 @@ This crate extends `Option` with additional methods, currently:
 - `contains`
 - `map_or2` (as a replacement for `map_or`)
 - `map_or_else2` (as a replacement for `map_or_else`)
+- `satisfies`
 
 Its sister crate is [`result-ext`](https://github.com/soc/result-ext), which extends `Result`.
 
@@ -63,5 +64,16 @@ fn example_map_or_else2() {
     
     let x: Option<&str> = None;
     assert_eq!(x.map_or_else2(|v| v.len(), || 2 * k), 46);
+}
+
+fn example_satisfies() {
+    let x = Some(10);
+    assert!(x.satisfies(|&n| n % 2 == 0));
+
+    let y = Some(13);
+    assert!(!y.satisfies(|&n| n % 2 == 0));
+
+    let z = None::<i32>;
+    assert!(!z.satisfies(|&n| n % 2 == 0));
 }
 ```
