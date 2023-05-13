@@ -68,4 +68,23 @@ pub trait OptionExt<T> {
     /// ```
     #[must_use]
     fn map_or_else2<U, F: FnOnce(T) -> U, D: FnOnce() -> U>(self, f: F, default: D) -> U;
+
+    /// Returns whether the contained value satisfies the given predicate,
+    /// or `false` if the option is [`None`].
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use option_ext::OptionExt;
+    ///
+    /// let x = Some(10);
+    /// assert!(x.satisfies(|&n| n % 2 == 0));
+    ///
+    /// let y = Some(13);
+    /// assert!(!y.satisfies(|&n| n % 2 == 0));
+    ///
+    /// let z = None::<i32>;
+    /// assert!(!z.satisfies(|&n| n % 2 == 0));
+    /// ```
+    fn satisfies<P: FnOnce(&T) -> bool>(&self, predicate: P) -> bool;
 }

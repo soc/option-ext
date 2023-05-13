@@ -17,4 +17,11 @@ impl<T> OptionExt<T> for Option<T> {
     fn map_or_else2<U, F: FnOnce(T) -> U, D: FnOnce() -> U>(self, f: F, default: D) -> U {
         self.map_or_else(default, f)
     }
+
+    fn satisfies<P: FnOnce(&T) -> bool>(&self, predicate: P) -> bool {
+        match self {
+            Some(v) => predicate(v),
+            None => false,
+        }
+    }
 }
